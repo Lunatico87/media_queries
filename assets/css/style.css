@@ -8,14 +8,16 @@
   display: grid;
   gap: 0.1rem;
   grid-template-areas:
-    "nav filter filter filter filter"
-    "nav main main main main"
-    "footer paginas paginas paginas paginas";
-  grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
-  grid-template-rows: 0.75fr 4fr 0.5fr;
+  "nav"
+  "filter"
+  "main"
+  "paginas"
+  "footer";
+grid-template-columns: 1fr;
+grid-template-rows: auto;
 }
 
-filter {
+.filter {
   grid-area: filter;
   background-color: rgb(11 35 78);
   display: flex;
@@ -25,7 +27,7 @@ filter {
   padding: 10px 40px;
 }
 
-filter p {
+.filter p {
   display: flex;
   font-size: 1.5rem;
   color: white;
@@ -40,7 +42,7 @@ filter p {
 
 .nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   grid-area: nav;
@@ -60,22 +62,24 @@ filter p {
 }
 .navbar .container-fluid,
 .navbar-expand-lg .navbar-nav {
-  flex-direction: column;
+  flex-direction: row;
 }
-
+.navbar-toggler {
+  width: 55px;
+  height: 55px;
+}
 h1 {
   font-size: 50px;
   font-weight: bold;
-  padding: 40px 0px;
+  padding: 10px 0px;
   color: #ffffff;
 }
 
 main {
   grid-area: main;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   background-color: white;
-  align-items: center;
 }
 
 .card {
@@ -98,9 +102,11 @@ main {
   max-width: 80%;
   margin: 20px 0;
 }
+h4{
+  text-align: center;
+}
 button {
   width: 70%;
-  height: 20%;
   margin-bottom: 20px;
   font-size: medium;
   border-radius: 0.25rem;
@@ -130,7 +136,6 @@ footer {
   grid-area: footer;
   display: flex;
   background-color: #210546;
-
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -138,34 +143,36 @@ footer {
   font-size: 1rem;
   padding-top: 1.5%;
 }
-
-@media (max-width: 992px) {
-  .grid-container {
-    grid-template-areas:
-      "nav"
-      "filter"
-      "main"
-      "paginas"
-      "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
+/*Tablet*/
+@media (min-width: 576px) {
   main {
     grid-template-columns: 1fr 1fr;
   }
-  .navbar-toggler {
-    width: 55px;
-    height: 55px;
-  }
-  .navbar .container-fluid {
-    flex-direction: row;
-  }
-  h1 {
-    padding: 10px;
-  }
 }
-@media (max-width: 576px) {
+/*Desktop*/
+@media (min-width:992px) {
+  .grid-container {
+  grid-template-areas:
+    "nav filter filter filter filter"
+    "nav main main main main"
+    "footer paginas paginas paginas paginas";
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 0.75fr 4fr 0.5fr;
+  height: 100vh;
+}
   main {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+  }
+  .nav {
+    align-items: start;
+    justify-content: center;
+  }
+    .navbar .container-fluid, 
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+}
+  h1 {
+    padding: 40px 0;
   }
 }
