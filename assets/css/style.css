@@ -165,19 +165,7 @@ footer {
   }
 }
 @media (max-width: 576px) {
-  .grid-container {
-    grid-template-areas:
-      "nav"
-      "filter"
-      "main"
-      "footer";
+  main {
     grid-template-columns: 1fr;
-    gap: 0px;
-  }
-  .main {
-    grid-template-columns: 1fr;
-  }
-  .nav {
-    padding-top: 0px;
   }
 }
