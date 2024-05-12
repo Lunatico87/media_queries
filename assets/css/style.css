@@ -150,6 +150,9 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
   .navbar-toggler {
     width: 55px;
     height: 55px;
